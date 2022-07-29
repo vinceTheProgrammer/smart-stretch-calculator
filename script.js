@@ -5,19 +5,29 @@ function calc() {
     let start = parseInt(document.getElementById("start-1").value);
     let end = parseInt(document.getElementById("end-1").value);
 
-    let index;
+    let startElements = document.querySelectorAll('.start');
+
+    startElements.forEach(el => {
+        elIndex = el.id.split("-")[1];
+        calcNode(elIndex, cStart, cEnd);
+    });
+
+    return false;
+}
+
+function calcNode(index, cStart, cEnd) {
+    let start = parseInt(document.getElementById("start-" + index).value);
+    let end = parseInt(document.getElementById("end-" + index).value);
+
     let length;
     let offset;
 
-    index = 1
     offset = calcOffset(cStart, cEnd, start, end);
     length = calcLength(cStart, cEnd, end, offset);
 
-    document.getElementById("index-1").textContent = index;
-    document.getElementById("length-1").textContent = length;
-    document.getElementById("offset-1").textContent = offset;
-    
-    return false;
+    document.getElementById("index-" + index).textContent = index;
+    document.getElementById("length-" + index).textContent = length;
+    document.getElementById("offset-" + index).textContent = offset;
 }
 
 function calcLength(cStart, cEnd, end, offset) {
@@ -35,8 +45,9 @@ function addNode() {
 
     let deleteNode = "deleteNode-" + (index - 1);
 
-    let indexText = spaceIndexElement(index)
-    let indexElement = document.createTextNode(indexText);
+    let spaces = spaceIndexElement(index)
+    let spanSpaceElement = createSpanSpace(spaces);
+    let indexElement = document.createTextNode(index);
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
     let breakElement = document.createElement('br');
@@ -47,10 +58,26 @@ function addNode() {
 
     insertAfter(breakElement, document.getElementById(deleteNode));
     insertAfter(indexElement, document.getElementById(breakElement.id));
-    insertAfter(startElement, indexElement);
+    insertAfter(spanSpaceElement, indexElement);
+    insertAfter(startElement, spanSpaceElement);
     insertAfter(endElement, document.getElementById(startElement.id));
     insertAfter(spaceElement, document.getElementById(endElement.id));
     insertAfter(deleteNodeElement, spaceElement);
+
+    let row = document.createElement('tr');
+    row.id = "row-" + index;
+    let indexTd = document.createElement('td');
+    indexTd.id = "index-"+ index;
+    let lengthTd = document.createElement('td');
+    lengthTd.id = "length-"+ index;
+    let offsetTd = document.createElement('td');
+    offsetTd.id = "offset-"+ index;
+
+    row.appendChild(indexTd);
+    row.appendChild(lengthTd);
+    row.appendChild(offsetTd);
+
+    insertAfter(row, document.getElementById("row-" + (index - 1)));
 }
 
 function createStartElement(index) {
@@ -82,12 +109,20 @@ function createDeleteNodeElement(index) {
     return el;
 }
 
+function createSpanSpace(spaces) {
+    let el = document.createElement('span');
+    el.style = "padding-inline-start: " + spaces + "ch";
+    return el;
+}
+
 function spaceIndexElement(indexElement) {
     let text = indexElement.toString();
+    let spaces = 0;
     while (text.length < 6) {
         text = text + " ";
+        spaces += 1;
     }
-    return text;
+    return spaces;
 }
 
 function insertAfter(newNode, referenceNode) {

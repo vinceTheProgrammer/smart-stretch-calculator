@@ -10,7 +10,7 @@
             Control Start <input type="number" id="control-start" required value=""/>
             Control End <input type="number" id="control-end" required value=""/>
             <hr>
-            1    <input type="number" class="start" id="start-1" required value=""/><input type="number" class="end" id="end-1" required value=""/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/>
+            1<span style="padding-inline-start: 5ch"></span><input type="number" class="start" id="start-1" required value=""/><input type="number" class="end" id="end-1" required value=""/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/>
             <br>
             <input type="button" value="+" onclick="return addNode();"/>
             <br>
@@ -23,11 +23,11 @@
                   <th>Length</th>
                   <th>Offset</th>
                 </tr>
-                <tr>
+                <tr id="row-1">
                     <td id="index-1"></td>
                     <td id="length-1"></td>
                     <td id="offset-1"></td>
-                  </tr>
+                </tr>
               </table> 
         </body>
     </html>
