@@ -13,6 +13,8 @@ function calculate() {
 
     document.getElementById("length").textContent = length;
     document.getElementById("offset").textContent = offset;
+    
+    return false;
 }
 
 function calcLength(cStart, cEnd, offset) {
