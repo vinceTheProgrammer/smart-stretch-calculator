@@ -42,7 +42,7 @@ function addNode() {
     let deleteNodeElement = createDeleteNodeElement(index);
 
 
-    insertAfter(breakElement, document.getElementById(end));
+    insertAfter(breakElement, document.getElementById(deleteNode));
     insertAfter(startElement, document.getElementById(breakElement.id));
     insertAfter(endElement, document.getElementById(startElement.id));
     insertAfter(deleteNodeElement, document.getElementById(endElement.id));
