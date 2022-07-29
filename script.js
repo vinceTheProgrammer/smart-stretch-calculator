@@ -54,6 +54,7 @@ function createStartElement(index) {
     el.id = "start-" + index;
     el.required = true;
     el.value = "";
+    return el;
 }
 
 function createEndElement (index) {
@@ -63,6 +64,7 @@ function createEndElement (index) {
     el.id = "end-" + index;
     el.required = true;
     el.value = "";
+    return el;
 }
 
 function insertAfter(newNode, referenceNode) {
@@ -70,5 +72,5 @@ function insertAfter(newNode, referenceNode) {
 }
 
 function deleteNode() {
-    
+
 }
