@@ -38,6 +38,7 @@ function addNode() {
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
     let breakElement = document.createElement('br');
+    breakElement.id = "break-" + index;
     let deleteNodeElement = createDeleteNodeElement(index);
 
 
