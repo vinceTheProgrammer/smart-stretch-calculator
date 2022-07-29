@@ -35,7 +35,7 @@ function addNode() {
 
     let deleteNode = "deleteNode-" + (index - 1);
 
-    let indexElement = document.createTextNode(index);
+    let indexElement = document.createTextNode(index + " ");
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
     let breakElement = document.createElement('br');
