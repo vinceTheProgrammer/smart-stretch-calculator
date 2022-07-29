@@ -5,12 +5,15 @@ function calc() {
     let start = parseInt(document.getElementById("start-1").value);
     let end = parseInt(document.getElementById("end-1").value);
 
+    let index;
     let length;
     let offset;
 
+    index = 1
     offset = calcOffset(cStart, cEnd, start, end);
     length = calcLength(cStart, cEnd, end, offset);
 
+    document.getElementById("index-1").textContent = index;
     document.getElementById("length-1").textContent = length;
     document.getElementById("offset-1").textContent = offset;
     
