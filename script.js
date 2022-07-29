@@ -83,10 +83,11 @@ function createDeleteNodeElement(index) {
 }
 
 function spaceIndexElement(indexElement) {
-    while (indexElement.toString().length < 6) {
-        indexElement = indexElement + " ";
+    let text = indexElement.toString();
+    while (text.length < 6) {
+        text = text + " ";
     }
-    return indexElement;
+    return text;
 }
 
 function insertAfter(newNode, referenceNode) {
