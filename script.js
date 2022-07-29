@@ -2,8 +2,10 @@ function calc() {
     let cStart = parseInt(document.getElementById("control-start").value);
     let cEnd = parseInt(document.getElementById("control-end").value);
 
-    let start = parseInt(document.getElementById("control-start").value);
-    let end = parseInt(document.getElementById("control-end").value);
+    let start = parseInt(document.getElementById("start").value);
+    let end = parseInt(document.getElementById("end").value);
+
+    console
 
     let length;
     let offset;
