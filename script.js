@@ -86,6 +86,7 @@ function spaceIndexElement(indexElement) {
     while (indexElement.length < 6) {
         indexElement = indexElement + "";
     }
+    return indexElement;
 }
 
 function insertAfter(newNode, referenceNode) {
