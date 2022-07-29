@@ -33,7 +33,7 @@ function calcOffset(cStart, cEnd, start, end) {
 function addNode() {
     index = document.querySelectorAll('.start').length + 1;
 
-    let end = "end-" + (index - 1);
+    let deleteNode = "deleteNode-" + (index - 1);
 
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
