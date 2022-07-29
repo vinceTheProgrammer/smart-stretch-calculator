@@ -35,17 +35,21 @@ function addNode() {
 
     let deleteNode = "deleteNode-" + (index - 1);
 
+    let indexElement = document.createTextNode(index);
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
     let breakElement = document.createElement('br');
     breakElement.id = "break-" + index;
     let deleteNodeElement = createDeleteNodeElement(index);
+    let spaceElement = document.createTextNode(' ');
 
 
     insertAfter(breakElement, document.getElementById(deleteNode));
-    insertAfter(startElement, document.getElementById(breakElement.id));
+    insertAfter(indexElement, document.getElementById(breakElement.id));
+    insertAfter(startElement, indexElement);
     insertAfter(endElement, document.getElementById(startElement.id));
-    insertAfter(deleteNodeElement, document.getElementById(endElement.id));
+    insertAfter(spaceElement, document.getElementById(endElement.id));
+    insertAfter(deleteNodeElement, spaceElement);
 }
 
 function createStartElement(index) {
