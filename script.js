@@ -1,4 +1,4 @@
-document.getElementById("main-form").onsubmit = function () {
+function calc() {
     let cStart = parseInt(document.getElementById("control-start").value);
     let cEnd = parseInt(document.getElementById("control-end").value);
 
@@ -13,7 +13,7 @@ document.getElementById("main-form").onsubmit = function () {
 
     document.getElementById("length").textContent = length;
     document.getElementById("offset").textContent = offset;
-
+    
     return false;
 }
 

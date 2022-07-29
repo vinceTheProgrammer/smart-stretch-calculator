@@ -1,25 +1,23 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title>Smart Stretch Calculatorr</title>
+            <title>Smart Stretch Calculator</title>
+            <script src="script.js"></script>
         </head>
         <body>
             <h1>Smart Stretch Calculator</h1>
-            <form id="main-form">
-                <input type="number" id="control-start" required value=""/>
-                <input type="number" id="control-end" required value=""/>
-                <hr>
-                <input type="number" id="start" required value=""/>
-                <input type="number" id="end" required value=""/>
-                <!-- <br>
-                <input type="button" id="add-point" value="+"/> -->
-                <br>
-                <br>
-                <input type="submit" value="Calculate"/>
-            </form>
+            <input type="number" id="control-start" required value=""/>
+            <input type="number" id="control-end" required value=""/>
+            <hr>
+            <input type="number" id="start" required value=""/>
+            <input type="number" id="end" required value=""/>
+            <!-- <br>
+            <input type="button" id="add-point" value="+"/> -->
+            <br>
+            <br>
+            <input type="button" value="Calculate" onclick="return calc();"/>
             <hr>
             <h4 id="length"></h4>
             <h4 id="offset"></h4>
         </body>
-        <script src="script.js"></script>
     </html>
