@@ -10,10 +10,11 @@
             Control Start <input type="number" id="control-start" required value=""/>
             Control End <input type="number" id="control-end" required value=""/>
             <hr>
-            1 <input type="number" id="start-1" required value=""/>
-            <input type="number" id="end-1" required value=""/>
+            1 <input type="number" class="start" id="start-1" required value=""/>
+            <input type="number" class="end" id="end-1" required value=""/>
+            <input type="button" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/>
             <br>
-            <input type="button" id="add-segment" value="+"/>
+            <input type="button" value="+" onclick="return addNode();"/>
             <br>
             <br>
             <input type="button" value="Calculate" onclick="return calc();"/>

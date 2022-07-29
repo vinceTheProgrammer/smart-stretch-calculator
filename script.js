@@ -29,3 +29,46 @@ function calcOffset(cStart, cEnd, start, end) {
     // -(((C8-B8)/(($D$3/$B$3)-1))-B8)
     return -(((end-start)/((cEnd/cStart)-1))-start)
 }
+
+function addNode() {
+    index = document.querySelectorAll('.start').length + 1;
+
+    let start = "start-" + (index - 1);
+    let end = "end-" + (index - 1);
+
+    let startElement = createStartElement(index);
+    let endElement = createEndElement(index);
+
+
+    insertAfter(startElement, document.getElementById(start));
+    insertAfter(endElement, document.getElementById(end));
+
+
+
+}
+
+function createStartElement(index) {
+    let el = document.createElement('input');
+    el.type = "number";
+    el.className = "start";
+    el.id = "start-" + index;
+    el.required = true;
+    el.value = "";
+}
+
+function createEndElement (index) {
+    let el = document.createElement('input');
+    el.type = "number";
+    el.className = "end";
+    el.id = "end-" + index;
+    el.required = true;
+    el.value = "";
+}
+
+function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function deleteNode() {
+    
+}
