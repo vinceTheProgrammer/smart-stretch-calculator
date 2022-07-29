@@ -19,7 +19,7 @@ function calc() {
 
 function calcLength(cStart, cEnd, offset) {
     // -($B$3*($D$3/$B$3)+D10-C10)/($D$3/$B$3)
-    return -(cStart*(cEnd/cStart)+offset-End)/(cEnd/cStart)
+    return -(cStart*(cEnd/cStart)+offset-end)/(cEnd/cStart)
 }
 
 function calcOffset(cStart, cEnd, start, end) {
