@@ -2,8 +2,8 @@ function calc() {
     let cStart = parseInt(document.getElementById("control-start").value);
     let cEnd = parseInt(document.getElementById("control-end").value);
 
-    let start = parseInt(document.getElementById("start").value);
-    let end = parseInt(document.getElementById("end").value);
+    let start = parseInt(document.getElementById("start-1").value);
+    let end = parseInt(document.getElementById("end-1").value);
 
     let length;
     let offset;
@@ -11,8 +11,8 @@ function calc() {
     offset = calcOffset(cStart, cEnd, start, end);
     length = calcLength(cStart, cEnd, end, offset);
 
-    document.getElementById("length").textContent = length;
-    document.getElementById("offset").textContent = offset;
+    document.getElementById("length-1").textContent = length;
+    document.getElementById("offset-1").textContent = offset;
     
     return false;
 }
