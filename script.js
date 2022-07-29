@@ -33,18 +33,18 @@ function calcOffset(cStart, cEnd, start, end) {
 function addNode() {
     index = document.querySelectorAll('.start').length + 1;
 
-    let start = "start-" + (index - 1);
     let end = "end-" + (index - 1);
 
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
+    let breakElement = document.createElement('br');
+    let deleteNodeElement = createDeleteNodeElement(index);
 
 
-    insertAfter(startElement, document.getElementById(start));
-    insertAfter(endElement, document.getElementById(end));
-
-
-
+    insertAfter(breakElement, document.getElementById(end));
+    insertAfter(startElement, document.getElementById(breakElement.id));
+    insertAfter(endElement, document.getElementById(startElement.id));
+    insertAfter(deleteNodeElement, document.getElementById(endElement.id));
 }
 
 function createStartElement(index) {
@@ -57,13 +57,22 @@ function createStartElement(index) {
     return el;
 }
 
-function createEndElement (index) {
+function createEndElement(index) {
     let el = document.createElement('input');
     el.type = "number";
     el.className = "end";
     el.id = "end-" + index;
     el.required = true;
     el.value = "";
+    return el;
+}
+
+function createDeleteNodeElement(index) {
+    let el = document.createElement('input');
+    el.type = "button";
+    el.className = "deleteNode";
+    el.id = "deleteNode-" + index;
+    el.value = "x";
     return el;
 }
 
