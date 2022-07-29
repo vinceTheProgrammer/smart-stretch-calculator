@@ -31,7 +31,7 @@ function calcOffset(cStart, cEnd, start, end) {
 }
 
 function addNode() {
-    index = document.querySelectorAll('.start').length + 1;
+    let index = document.querySelectorAll('.start').length + 1;
 
     let deleteNode = "deleteNode-" + (index - 1);
 
