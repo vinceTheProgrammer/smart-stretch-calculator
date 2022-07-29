@@ -83,7 +83,7 @@ function createDeleteNodeElement(index) {
 }
 
 function spaceIndexElement(indexElement) {
-    while (indexElement.length < 6) {
+    while (indexElement.toString().length < 6) {
         indexElement = indexElement + "";
     }
     return indexElement;
