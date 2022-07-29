@@ -5,13 +5,11 @@ function calc() {
     let start = parseInt(document.getElementById("start").value);
     let end = parseInt(document.getElementById("end").value);
 
-    console
-
     let length;
     let offset;
 
     offset = calcOffset(cStart, cEnd, start, end);
-    length = calcLength(cStart, cEnd, offset);
+    length = calcLength(cStart, cEnd, end, offset);
 
     document.getElementById("length").textContent = length;
     document.getElementById("offset").textContent = offset;
@@ -19,7 +17,7 @@ function calc() {
     return false;
 }
 
-function calcLength(cStart, cEnd, offset) {
+function calcLength(cStart, cEnd, end, offset) {
     // -($B$3*($D$3/$B$3)+D10-C10)/($D$3/$B$3)
     return -(cStart*(cEnd/cStart)+offset-end)/(cEnd/cStart)
 }
