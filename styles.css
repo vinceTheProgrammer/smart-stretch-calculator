@@ -43,6 +43,11 @@ table, th, td {
     width: 100%;
 }
 
+#csv-download-button {
+    position: absolute;
+    right: 0;
+}
+
 input { box-sizing:border-box; padding: 5px;border-radius: 5px;font-family: Sans-serif;font-weight: bold;}
 
 h1 {
@@ -65,6 +70,7 @@ body {
     background-origin: padding-box;
     background-clip: border-box;
     background-attachment: scroll;
+    position: relative;
   }
 
 @media screen and (max-width: 600px) {
@@ -81,5 +87,10 @@ body {
 
     #calc-button {
         width: 100%;
+    }
+
+    #csv-download-button {
+        width: 100%;
+        position: unset;
     }
 }
