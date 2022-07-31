@@ -1,15 +1,20 @@
 table, th, td {
-    border: 1px solid black;
+    border: 5px solid #3f88a4;
     border-collapse: collapse;
+    background-color: #76b5dbad;
+    color: white;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+    font-family: Sans-serif;
 }
 
 .deleteNode {
     color: white;
-    background-color: red;
+    background-color: #dd4c4c;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.5);
 }
 
 .div {
-    background-color: lightgray;
+    background-color: #a4cdddd1;
     border-radius: 5px;
     padding: 5px;
     margin: 5px 0px;
@@ -18,22 +23,49 @@ table, th, td {
 }
 
 #calc-button {
-    background-color: green;
+    background-color: #1ff47ca8;
     color:white;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.5);
 }
 
 #control-start-text {
     margin-right: 5px;
+    font-family: Sans-serif;
+    color: white;
 }
 #control-end-text {
     margin-right: 5px;
+    font-family: Sans-serif;
+    color: white;
 }
 
 #result-table {
     width: 100%;
 }
 
-input { box-sizing:border-box } 
+input { box-sizing:border-box; padding: 5px;border-radius: 5px;font-family: Sans-serif;font-weight: bold;}
+
+h1 {
+    font-family: Sans-serif;
+    color: white;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.5);
+    text-align: center;
+}
+    hr {
+        color: white;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-image: url("https://cdn.discordapp.com/attachments/1003217424281251881/1003244544348913745/background.png");
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-attachment: scroll;
+  }
 
 @media screen and (max-width: 600px) {
     .indexSpan, .start, .end, #control-start-text, #control-start, #control-end-text, #control-end {
