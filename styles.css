@@ -4,5 +4,50 @@ table, th, td {
 }
 
 .deleteNode {
-    color: red;
+    color: white;
+    background-color: red;
+}
+
+.div {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0px;
+    display: block;
+    position: relative;
+}
+
+#calc-button {
+    background-color: green;
+    color:white;
+}
+
+#control-start-text {
+    margin-right: 5px;
+}
+#control-end-text {
+    margin-right: 5px;
+}
+
+#result-table {
+    width: 100%;
+}
+
+input { box-sizing:border-box } 
+
+@media screen and (max-width: 600px) {
+    .indexSpan, .start, .end, #control-start-text, #control-start, #control-end-text, #control-end {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .deleteNode {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #calc-button {
+        width: 100%;
+    }
 }

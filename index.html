@@ -8,17 +8,16 @@
         </head>
         <body>
             <h1>Smart Stretch Calculator</h1>
-            Control Start <input type="number" id="control-start" required value=""/>
-            Control End <input type="number" id="control-end" required value=""/>
+            <span id="control-start-text">Control Start</span><input type="number" id="control-start" required value=""/>
+            <span id="control-end-text">Control End</span><input type="number" id="control-end" required value=""/>
             <hr>
-            <span id="span-1" class="span"><span id="indexSpan-1" style="padding-inline-end: 5ch">1</span><input type="number" class="start" id="start-1" required value=""/><input type="number" class="end" id="end-1" required value=""/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/></span>
-            <br>
+            <div id="div-1" class="div"><span id="indexSpan-1" class="indexSpan" style="padding-inline-end: 5ch">1</span><input type="number" class="start" id="start-1" required value=""/><input type="number" class="end" id="end-1" required value=""/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/></div>
             <input type="button" value="+" onclick="return addNode();"/>
             <br>
             <br>
-            <input type="button" value="Calculate" onclick="return calc();"/>
+            <input id="calc-button" type="button" value="Calculate" onclick="return calc();"/>
             <hr>
-            <table>
+            <table id="result-table">
                 <tr>
                   <th>Node</th>
                   <th>Length</th>

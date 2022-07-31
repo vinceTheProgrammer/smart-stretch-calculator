@@ -45,22 +45,44 @@ function addNode() {
 
     let deleteNode = "deleteNode-" + (index - 1);
 
-    let span = document.createElement('span');
-    span.id = "span-" + index;
-    span.className = "span";
+    let div = document.createElement('div');
+    div.id = "div-" + index;
+    div.className = "div";
 
     let spaces = spaceIndexElement(index)
     let spanSpaceElement = createSpanSpace(spaces, index, index);
     // let indexElement = document.createTextNode(index);
     let startElement = createStartElement(index);
     let endElement = createEndElement(index);
-    let breakElement = document.createElement('br');
-    breakElement.id = "break-" + index;
+    // let breakElement = document.createElement('br');
+    // breakElement.id = "break-" + index;
     let deleteNodeElement = createDeleteNodeElement(index);
     deleteNodeElement.addEventListener('click', () => {
         let index = deleteNodeElement.id.split('-')[1];
-        let elements = document.querySelectorAll(".span");
-        document.getElementById("span-" + index).remove();
+        let elements = document.querySelectorAll(".div");
+        if (elements.length < 2) return;
+        document.getElementById("div-" + index).remove();
+        document.getElementById("result-table").deleteRow(index);
+        Array.from(document.getElementById("result-table").rows).forEach(row => {
+            let rowId = row.id.split('-');
+            let rowIdName = rowId[0];
+            let rowIndex = rowId[1];
+            if (rowIndex > index) {
+                rowIndex -= 1;
+                document.getElementById(row.id).id = rowIdName + "-" + rowIndex;
+                let descendants = getAllDescendants(row);
+                descendants.forEach(des => {
+                    let nodeId = des.id.split('-');
+                    let nodeIdName = nodeId[0];
+                    let nodeIndex = nodeId[1];
+                    nodeIndex -= 1;
+                    if (nodeIdName == "index")
+                        document.getElementById(des.id).innerText = nodeIndex;
+                    if (des.id.length > 0)
+                        document.getElementById(des.id).id = nodeIdName + "-" + nodeIndex;
+                });
+            }
+        });
         elements.forEach(el => {
             let elId = el.id.split('-');
             let elIdName = elId[0];
@@ -84,15 +106,15 @@ function addNode() {
     });
     let spaceElement = document.createTextNode(' ');
 
-    span.appendChild(breakElement);
-    // span.appendChild(indexElement);
-    span.appendChild(spanSpaceElement);
-    span.appendChild(startElement);
-    span.appendChild(endElement);
-    span.appendChild(spaceElement);
-    span.appendChild(deleteNodeElement);
+    // div.appendChild(breakElement);
+    // div.appendChild(indexElement);
+    div.appendChild(spanSpaceElement);
+    div.appendChild(startElement);
+    div.appendChild(endElement);
+    div.appendChild(spaceElement);
+    div.appendChild(deleteNodeElement);
 
-    insertAfter(span, document.getElementById("span-" + (index - 1)));
+    insertAfter(div, document.getElementById("div-" + (index - 1)));
 
 
     // insertAfter(breakElement, document.getElementById(deleteNode));
@@ -153,6 +175,7 @@ function createSpanSpace(spaces, text, index) {
     el.style = "padding-inline-end: " + spaces + "ch";
     el.innerText = text;
     el.id = "indexSpan-" + index;
+    el.className = "indexSpan";
     return el;
 }
 
@@ -172,8 +195,30 @@ function insertAfter(newNode, referenceNode) {
 
 function deleteNode(id) {
     let index = id.split('-')[1];
-    let elements = document.querySelectorAll(".span");
-    document.getElementById("span-" + index).remove();
+    let elements = document.querySelectorAll(".div");
+    if (elements.length < 2) return;
+    document.getElementById("div-" + index).remove();
+    document.getElementById("result-table").deleteRow(index);
+    Array.from(document.getElementById("result-table").rows).forEach(row => {
+        let rowId = row.id.split('-');
+        let rowIdName = rowId[0];
+        let rowIndex = rowId[1];
+        if (rowIndex > index) {
+            rowIndex -= 1;
+            document.getElementById(row.id).id = rowIdName + "-" + rowIndex;
+            let descendants = getAllDescendants(row);
+            descendants.forEach(des => {
+                let nodeId = des.id.split('-');
+                let nodeIdName = nodeId[0];
+                let nodeIndex = nodeId[1];
+                nodeIndex -= 1;
+                if (nodeIdName == "index")
+                        document.getElementById(des.id).innerText = nodeIndex;
+                if (des.id.length > 0)
+                    document.getElementById(des.id).id = nodeIdName + "-" + nodeIndex;
+            });
+        }
+    });
     elements.forEach(el => {
         let elId = el.id.split('-');
         let elIdName = elId[0];
