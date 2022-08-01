@@ -43,8 +43,8 @@ function addNode() {
     let offsetTd = document.createElement('td');
     offsetTd.id = "offset-"+ index;
     row.appendChild(indexTd);
-    row.appendChild(lengthTd);
     row.appendChild(offsetTd);
+    row.appendChild(lengthTd);
     insertAfter(row, document.getElementById("row-" + (index - 1)));
     updateTableIndexes();
 }

@@ -60,7 +60,7 @@ body {
     background-position-x: 0%;
     background-position-y: 0%;
     background-repeat: repeat;
-    background-image: url("https://cdn.discordapp.com/attachments/1003217424281251881/1003244544348913745/background.png");
+    background-image: url("./res/images/background.png");
     background-size: auto;
     background-origin: padding-box;
     background-clip: border-box;
