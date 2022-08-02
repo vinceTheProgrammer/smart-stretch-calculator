@@ -38,6 +38,18 @@ table, th, td {
     font-family: Sans-serif;
     color: white;
 }
+#custom-index-checkbox-text {
+    font-family: Sans-serif;
+    color: white;
+}
+
+.edit-icon {
+    vertical-align: middle;
+    padding-bottom: 6px;
+}
+.edit-icon:hover path {
+    fill: #dd924c;
+}
 
 #result-table {
     width: 100%;

@@ -29,6 +29,10 @@ function addNode() {
     });
     let spaceElement = document.createTextNode(' ');
     div.appendChild(spanSpaceElement);
+    if(document.getElementById('custom-index-checkbox').checked == true) {
+        spanSpaceElement.contentEditable = true;
+        spanSpaceElement.style['backgroundColor'] = "white";
+    }
     div.appendChild(startElement);
     div.appendChild(endElement);
     div.appendChild(spaceElement);
@@ -59,7 +63,7 @@ function deleteNode(id) {
     Array.from(document.getElementById("result-table").rows).forEach(row => {
         let rowId = row.id.split('-');
         let rowIdName = rowId[0];
-        let rowIndex = rowId[1];
+        let rowIndex = Number(rowId[1]);
         if (rowIndex > index) {
             rowIndex -= 1;
             document.getElementById(row.id).id = rowIdName + "-" + rowIndex;
@@ -67,7 +71,7 @@ function deleteNode(id) {
             descendants.forEach(des => {
                 let nodeId = des.id.split('-');
                 let nodeIdName = nodeId[0];
-                let nodeIndex = nodeId[1];
+                let nodeIndex = Number(nodeId[1]);
                 nodeIndex -= 1;
                 if (nodeIdName == "index")
                         document.getElementById(des.id).innerText = nodeIndex;
@@ -79,7 +83,7 @@ function deleteNode(id) {
     elements.forEach(el => {
         let elId = el.id.split('-');
         let elIdName = elId[0];
-        let elIndex = elId[1];
+        let elIndex = Number(elId[1]);
         if (elIndex > index) {
             elIndex -= 1;
             document.getElementById(el.id).id = elIdName + "-" + elIndex;
@@ -87,16 +91,41 @@ function deleteNode(id) {
             descendants.forEach(des => {
                 let nodeId = des.id.split('-');
                 let nodeIdName = nodeId[0];
-                let nodeIndex = nodeId[1];
+                let nodeIndex = Number(nodeId[1]);
                 nodeIndex -= 1;
                 if (nodeIdName == "indexSpan")
-                    document.getElementById(des.id).innerText = nodeIndex;
+                    if (document.getElementById(des.id).innerText == nodeIndex + 1) {
+                        document.getElementById(des.id).innerText = nodeIndex;
+                    }
                 if (des.id.length > 0)
                     document.getElementById(des.id).id = nodeIdName + "-" + nodeIndex;
             });
         }
     });
     updateTableIndexes();
+}
+
+function setEditable(checked) {
+    indexSpans = document.querySelectorAll('.indexSpan');
+    if (checked) {
+        indexSpans.forEach(indexSpan => {
+            indexSpan.contentEditable = true;
+            indexSpan.style['backgroundColor'] = "white";
+        });
+    } else {
+        indexSpans.forEach(indexSpan => {
+            indexSpan.contentEditable = false;
+            indexSpan.style['backgroundColor'] = "transparent";
+        });
+    }
+}
+
+function onPageLoad() {
+    document.getElementById('custom-index-checkbox').checked = false;
+    const targetNode = document.getElementById('node-div-container');
+    const config = { characterData: true, subtree: true };
+    const observer = new MutationObserver(updateTableIndexes);
+    observer.observe(targetNode, config);
 }
 
 /******** 
@@ -149,9 +178,9 @@ function calcNode(index, cStart, cEnd) {
     let offset;
     offset = calcOffset(cStart, cEnd, start, end);
     length = calcLength(cStart, cEnd, end, offset);
-    document.getElementById("index-" + index).textContent = index;
-    document.getElementById("length-" + index).textContent = length;
-    document.getElementById("offset-" + index).textContent = offset;
+    document.getElementById("index-" + index).innerText = document.getElementById('indexSpan-' + index).innerText;
+    document.getElementById("length-" + index).innerText = length;
+    document.getElementById("offset-" + index).innerText = offset;
 }
 
 // Calculates length
@@ -197,8 +226,15 @@ function getAllDescendants(element) {
 function updateTableIndexes() {
     tData = document.querySelectorAll('td');
     tData.forEach(td => {
-        if (td.id.split('-')[0] == 'index') {
-            td.innerText = td.id.split('-')[1];
+        let name = td.id.split('-')[0];
+        let index = td.id.split('-')[1]
+        if (name == 'index') {
+            indexSpanText = document.getElementById('indexSpan-' + index).innerText;
+            if (indexSpanText == index || indexSpanText == "") {
+                td.innerText = index;
+            } else {
+                td.innerText = indexSpanText;
+            }
         }
     });
 }
