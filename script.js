@@ -138,6 +138,7 @@ function createStartElement(index) {
     el.id = "start-" + index;
     el.required = true;
     el.value = "";
+    el.placeholder = "Start";
     return el;
 }
 function createEndElement(index) {
@@ -147,6 +148,7 @@ function createEndElement(index) {
     el.id = "end-" + index;
     el.required = true;
     el.value = "";
+    el.placeholder = "End";
     return el;
 }
 function createDeleteNodeElement(index) {

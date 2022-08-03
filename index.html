@@ -13,7 +13,7 @@
             <input id="custom-index-checkbox" type="checkbox" onclick="return setEditable(this.checked);"/><span id="custom-index-checkbox-text">Customize node names</span>
             <hr>
             <div id="node-div-container">
-            <div id="div-1" class="div"><span id="indexSpan-1" class="indexSpan" style="padding-inline-end: 5ch" onchange="return alertTest();">1</span><input type="number" class="start" id="start-1" required value=""/><input type="number" class="end" id="end-1" required value=""/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/></div>
+            <div id="div-1" class="div"><span id="indexSpan-1" class="indexSpan" style="padding-inline-end: 5ch" onchange="return alertTest();">1</span><input type="number" class="start" id="start-1" required value="" placeholder="Start"/><input type="number" class="end" id="end-1" required value="" placeholder="End"/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/></div>
             </div>
             <input type="button" value="+" onclick="return addNode();"/>
             <br>
