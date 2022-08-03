@@ -122,6 +122,8 @@ function setEditable(checked) {
 
 function onPageLoad() {
     document.getElementById('custom-index-checkbox').checked = false;
+    let version = pageConfig.version;
+    document.getElementById("version-h4").innerHTML = version + " - " + document.getElementById("version-h4").innerHTML;
     const targetNode = document.getElementById('node-div-container');
     const config = { characterData: true, subtree: true };
     const observer = new MutationObserver(updateTableIndexes);

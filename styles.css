@@ -28,17 +28,7 @@ table, th, td {
     text-shadow: 1px 1px 0 rgba(0,0,0,.5);
 }
 
-#control-start-text {
-    margin-right: 5px;
-    font-family: Sans-serif;
-    color: white;
-}
-#control-end-text {
-    margin-right: 5px;
-    font-family: Sans-serif;
-    color: white;
-}
-#custom-index-checkbox-text {
+.default-text-style {
     font-family: Sans-serif;
     color: white;
 }

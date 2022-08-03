@@ -4,13 +4,14 @@
             <title>Smart Stretch Calculator</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
             <link rel="stylesheet" href="styles.css">
+            <script type="text/javascript" src="page-config.js"></script>
             <script src="script.js"></script>
         </head>
         <body onload="return onPageLoad();">
             <h1>Smart Stretch Calculator</h1>
-            <span id="control-start-text">Control Start</span><input type="number" id="control-start" required value=""/>
-            <span id="control-end-text">Control End</span><input type="number" id="control-end" required value=""/>
-            <input id="custom-index-checkbox" type="checkbox" onclick="return setEditable(this.checked);"/><span id="custom-index-checkbox-text">Customize node names</span>
+            <input type="number" id="control-start" required value="" placeholder="Control Start"/>
+            <input type="number" id="control-end" required value="" placeholder="Control End"/>
+            <input id="custom-index-checkbox" type="checkbox" onclick="return setEditable(this.checked);"/><span class="default-text-style">Customize node names</span>
             <hr>
             <div id="node-div-container">
             <div id="div-1" class="div"><span id="indexSpan-1" class="indexSpan" style="padding-inline-end: 5ch" onchange="return alertTest();">1</span><input type="number" class="start" id="start-1" required value="" placeholder="Start"/><input type="number" class="end" id="end-1" required value="" placeholder="End"/> <input type="button" class="deleteNode" id="deleteNode-1" value="x" onclick="return deleteNode(this.id);"/></div>
@@ -31,6 +32,9 @@
                     <td id="offset-1"></td>
                     <td id="length-1"></td>
                 </tr>
-              </table> 
+              </table>
+              <footer>
+                <h4 id="version-h4"><a style="color: red" target="_blank" href="https://github.com/vinceTheProgrammer/smart-stretch-calculator">Source Code</a></h4>
+              </footer>
         </body>
     </html>
