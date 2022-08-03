@@ -70,9 +70,14 @@ body {
   }
 
 @media screen and (max-width: 600px) {
-    .indexSpan, .start, .end, #control-start, #control-end, .indexSpan {
+    .indexSpan, .start, .end, #control-start, #control-end {
         width: 100%;
         margin-top: 0;
+    }
+
+    .indexSpan {
+        display: block;
+        width: fit-content;
     }
 
     .deleteNode {
