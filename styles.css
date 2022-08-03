@@ -70,7 +70,7 @@ body {
   }
 
 @media screen and (max-width: 600px) {
-    .indexSpan, .start, .end, #control-start-text, #control-start, #control-end-text, #control-end {
+    .indexSpan, .start, .end, #control-start, #control-end, .indexSpan {
         width: 100%;
         margin-top: 0;
     }
