@@ -22,3 +22,11 @@ function getAllDescendants(element) {
     }
     return children;
 }
+
+function isVisualizerEnabled() {
+    return document.getElementById('visualizer-checkbox').checked;
+}
+
+function isRoundingEnabled() {
+    return document.getElementById('round-numbers-checkbox').checked;
+}

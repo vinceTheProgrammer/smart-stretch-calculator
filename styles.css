@@ -69,6 +69,16 @@ body {
     background-attachment: scroll;
   }
 
+  canvas {
+    background-color: white;
+    height: 150px;
+    display: block;
+    margin-top: 10px;
+    border: 5px solid rgb(0, 0, 0);
+    width: 100%;
+    margin-right: 5px;
+  }
+
 @media screen and (max-width: 600px) {
     .indexSpan, .start, .end, #control-start, #control-end {
         width: 100%;
