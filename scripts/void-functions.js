@@ -219,10 +219,11 @@ function updateCanvas(cStart, cEnd, start, end, canvas, ctx) {
 }
 
 function moveCanvas(index) {
-    if (isVisualizerEnabled() == false) return;
 
     let oldCanvas = document.getElementById('canvas') ?? false;
     if (oldCanvas != false) oldCanvas.remove();
+
+    if (isVisualizerEnabled() == false) return;
 
     let canvas = document.createElement('canvas');
     canvas.id = 'canvas';

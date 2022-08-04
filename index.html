@@ -16,7 +16,7 @@
             <input type="number" id="control-start" required value="" placeholder="Control Start" onchange="return updateCanvasArgumentless();"/>
             <input type="number" id="control-end" required value="" placeholder="Control End" onchange="return updateCanvasArgumentless();"/>
             <input id="custom-index-checkbox" type="checkbox" onclick="return setEditable(this.checked);"/><span class="default-text-style">Customize node names</span>
-            <input id="visualizer-checkbox" type="checkbox"/><span class="default-text-style">Enable visualizer (beta)</span>
+            <input id="visualizer-checkbox" type="checkbox" onclick="return moveCanvas();"/><span class="default-text-style">Enable visualizer (beta)</span>
             <input id="round-numbers-checkbox" type="checkbox"/><span class="default-text-style">Round table values</span>
             <hr>
             <div id="node-div-container">
