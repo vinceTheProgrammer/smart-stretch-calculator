@@ -1,5 +1,7 @@
 function onPageLoad() {
     document.getElementById('custom-index-checkbox').checked = false;
+    document.getElementById('visualizer-checkbox').checked = false;
+    updateCanvasArgumentless();
     let version = pageConfig.version;
     document.getElementById("version-h4").innerHTML = version + " - " + document.getElementById("version-h4").innerHTML;
     const targetNode = document.getElementById('node-div-container');
@@ -16,6 +18,7 @@ function calc() {
         let nodeIndex = node.id.split("-")[1];
         calcNode(nodeIndex, cStart, cEnd);
     });
+    updateCanvasArgumentless(true);
 }
 
 function addNode() {
@@ -26,7 +29,13 @@ function addNode() {
     let spaces = spaceIndexElement(index)
     let spanSpaceElement = createSpanSpace(spaces, index, index);
     let startElement = createStartElement(index);
+    startElement.addEventListener('change', () => {
+        updateCanvasArgumentless();
+    });
     let endElement = createEndElement(index);
+    endElement.addEventListener('change', () => {
+        updateCanvasArgumentless();
+    });
     let deleteNodeElement = createDeleteNodeElement(index);
     deleteNodeElement.addEventListener('click', () => {
         deleteNode(deleteNodeElement.id);
@@ -122,3 +131,12 @@ function setEditable(checked) {
         });
     }
 }
+
+document.addEventListener('click', function handleDivClick(event) {
+    if (isNaN(event.target.id.split('-')[1]) == false) {
+        if (document.getElementById('div-' + event.target.id.split('-')[1]).contains(event.target)) {
+            moveCanvas(event.target.id.split('-')[1]);
+        }
+    }
+  });
+  
