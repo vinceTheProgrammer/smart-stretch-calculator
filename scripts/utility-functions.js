@@ -32,33 +32,24 @@ function isRoundingEnabled() {
 }
 
 function relativeCoords(coord, cStart, cEnd) {
-    let origin = cStart;
+    let origin = 0;
+    let deltaPos = parseInt(coord.replace(/[^0-9]/gm,''));
+    if (coord.replace(/[^0-9]/gm,'') === '') deltaPos = 0;
 
-    //console.log(coord);
-
-    const matchPlus = coord.match(/\+/gm) !== null;
     const matchMinus = coord.match(/\-/gm) !== null;
     const matchE = coord.match(/e/gmi) !== null;
+    const matchS = coord.match(/s/gmi) !== null;
 
-    //console.log('+', coord.match(/\+/gm));
-    //console.log('-', coord.match(/\-/gm));
-    //console.log('E', coord.match(/e/gm));
-
-    console.log(matchE);
-    console.log("first", origin);
     if (matchE) origin = cEnd;
-    console.log("second", origin);
+    if (matchS) origin = cStart;
 
-    if (matchPlus) {
+    if (matchMinus) {
         coord = coord.replace(/[^0-9]/gm,'');
-        coord = origin + parseInt(coord);
-    } else if (matchMinus) {
-        coord = coord.replace(/[^0-9]/gm,'');
-        coord = origin - parseInt(coord);
+        coord = origin - deltaPos;
     } else {
         coord = coord.replace(/[^0-9]/gm,'');
-        coord = parseInt(coord);
+        coord = origin + deltaPos;
     }
-    //console.log(coord);
+    
     return coord;
 }
