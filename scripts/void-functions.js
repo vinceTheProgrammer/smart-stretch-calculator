@@ -1,6 +1,8 @@
 function calcNode(index, cStart, cEnd) {
-    let start = parseInt(document.getElementById("start-" + index).value);
-    let end = parseInt(document.getElementById("end-" + index).value);
+    let start = document.getElementById("start-" + index).value;
+    let end = document.getElementById("end-" + index).value;
+    start = relativeCoords(start, cStart, cEnd);
+    end = relativeCoords(end, cStart, cEnd);
     let length;
     let offset;
     offset = calcOffset(cStart, cEnd, start, end);
@@ -37,8 +39,10 @@ function updateCanvasArgumentless(calledFromCalc) {
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
     let index = canvas.parentElement.id.split('-')[1];
-    let start = parseInt(document.getElementById("start-" + index).value);
-    let end = parseInt(document.getElementById("end-" + index).value);
+    let start = document.getElementById("start-" + index).value;
+    let end = document.getElementById("end-" + index).value
+    start = relativeCoords(start, cStart, cEnd);
+    end = relativeCoords(end, cStart, cEnd);
     updateCanvas(cStart, cEnd, start, end, canvas, ctx);
     if (calledFromCalc) return;
     calc();
