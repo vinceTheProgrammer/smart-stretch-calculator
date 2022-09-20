@@ -1,6 +1,6 @@
 function createStartElement(index) {
     let el = document.createElement('input');
-    el.type = "number";
+    el.type = "text";
     el.className = "start";
     el.id = "start-" + index;
     el.required = true;
@@ -10,7 +10,7 @@ function createStartElement(index) {
 }
 function createEndElement(index) {
     let el = document.createElement('input');
-    el.type = "number";
+    el.type = "text";
     el.className = "end";
     el.id = "end-" + index;
     el.required = true;
